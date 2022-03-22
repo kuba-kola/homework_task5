@@ -10,25 +10,25 @@ class Calculator {
     this.logDiv = this.logDiv.bind(this);
         
     if (!Number.isFinite(x) || !Number.isFinite(y)) {
-      throw new Error('Ошибка!');
+      throw new Error(`Ошибка! Вы ввели не число!`);
 
     }
   }
 
-  setX(newX) {
-    if (!Number.isFinite(newX)) {
-      throw new Error('Ошибка!');
+  setX(num) {
+    if (!Number.isFinite(num)) {
+      throw new Error(`Ошибка! Вы ввели не число!`);
     }
 
-    this.x = newX;
+    this.x = num;
   }
 
-  setY(newY) {
-    if (!Number.isFinite(newY) || newY === 0) {
-      throw new Error('Ошибка!');
+  setY(num) {
+    if (!Number.isFinite(num) || num === 0) {
+      throw new Error(`Ошибка! Вы ввели не число!`);
     }
 
-    this.y = newY;
+    this.y = num;
   }
 
   logSum() {
@@ -45,9 +45,19 @@ class Calculator {
 
   logDiv() {
     if (this.y === 0) {
-      throw new Error('Ошибка!');
+      throw new Error(`Ошибка! Вы пытаесь поделить на ноль!`);
     }
 
     console.log(this.x / this.y);
   }
 }
+
+const calculator = new Calculator(12, 3);
+calculator.logSum(); // 15
+calculator.logDiv(); // 4
+calculator.setX(15);
+calculator.logDiv(); // 5
+const logCalculatorDiv = calculator.logDiv;
+logCalculatorDiv(); // 5
+calculator.setX('tt'); // Ошибка!
+calculator.setY('td78'); // Ошибка!
