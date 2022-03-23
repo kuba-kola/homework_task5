@@ -6,15 +6,11 @@ class Calculator {
 
     this.x = x;
     this.y = y;
-    // this.setX = this.setX.bind(this);
-    // this.setY = this.setY.bind(this);
-    // this.logSum = this.logSum.bind(this);
-    // this.logMul = this.logMul.bind(this);
-    // this.logSub = this.logSub.bind(this);
-    // this.logDiv = this.logDiv.bind(this);        
+    this.setX = this.setX.bind(this);
+    this.setY = this.setY.bind(this);      
   }
 
-  setX = num => {
+  setX(num) {
     if (!Number.isFinite(num)) {
       throw new Error(`Ошибка! Вы ввели не число!`);
     }
@@ -22,7 +18,7 @@ class Calculator {
     this.x = num;
   }
 
-  setY = num => {
+  setY(num) {
     if (!Number.isFinite(num) || num === 0) {
       throw new Error(`Ошибка! Вы ввели не число!`);
     }
