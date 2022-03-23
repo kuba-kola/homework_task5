@@ -1,14 +1,14 @@
 function concatStrings(input, separator = '') {
     return function (args) {        
         const res = input + separator + args;
-        const argsCorrect = typeof args === 'string';
-        const sepCorrect = typeof separator === 'string';
+        const areArgsCorrect = typeof args === 'string';
+        const isSepCorrect = typeof separator === 'string';
 
-        if (!sepCorrect) {
+        if (!isSepCorrect) {
             separator = '';
         }
 
-        if (!argsCorrect) {
+        if (!areArgsCorrect) {
             return input;
         }         
 
