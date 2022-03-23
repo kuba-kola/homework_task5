@@ -5,12 +5,10 @@ class Calculator {
     }
 
     this.x = x;
-    this.y = y;
-    this.setX = this.setX.bind(this);
-    this.setY = this.setY.bind(this);      
+    this.y = y;     
   }
 
-  setX(num) {
+  setX = num => {
     if (!Number.isFinite(num)) {
       throw new Error(`Ошибка! Вы ввели не число!`);
     }
@@ -18,7 +16,7 @@ class Calculator {
     this.x = num;
   }
 
-  setY(num) {
+  setY = num => {
     if (!Number.isFinite(num) || num === 0) {
       throw new Error(`Ошибка! Вы ввели не число!`);
     }
